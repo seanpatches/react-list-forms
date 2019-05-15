@@ -31,10 +31,10 @@ export default function Color({ name, rgb }){
 
 Color.propTypes = {
   name: PropTypes.string.isRequired,
-  rgb: {
+  rgb: PropTypes.shape({
     red: PropTypes.number.isRequired,
     green: PropTypes.number.isRequired,
     blue: PropTypes.number.isRequired
-  }
+  })
 };
 
