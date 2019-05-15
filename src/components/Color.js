@@ -1,17 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const hexFromColor = color => {
-  return `${color.toString(16).padStart(2, 0)}`.toUpperCase;
+const decimalFromHex = hex => {
+  return Number.parseInt(`0x${hex}`, 16);
 };
 
-const hexFromRGB = (rgb) => {
-  return `#${hexFromColor(rgb.red)}${hexFromColor(rgb.green)}${hexFromColor(rgb.blue)}`;
+const rgbFromHex = hex => {
+  return {
+    red: decimalFromHex(hex.slice(1, 3)),
+    green: decimalFromHex(hex.slice(3, 5)),
+    blue: decimalFromHex(hex.slice(5, 7)),
+  };
 };
 
-export default function Color({ name, rgb }){  
-  const hex = hexFromRGB(rgb);
+export default function Color({ name, hex }){  
+  const rgb = rgbFromHex(hex);
+  const divStyle = {
+    background: 'red',
+    width: '30px',
+    height: '20px'
+  };
+
   return (
+    <>
+      <div style={divStyle}></div>
     <dl>
       <dt>Name</dt>
       <dd>{name || hex} <div></div></dd>
@@ -20,21 +32,19 @@ export default function Color({ name, rgb }){
       <dd>{hex}</dd>
 
       <dt>RGB</dt>
+      
       <dd>
         <p>Red - {rgb.red}</p>
         <p>Green - {rgb.green}</p>
         <p>Blue - {rgb.blue}</p>
       </dd>
     </dl>
+    </>
   );
 }
 
 Color.propTypes = {
   name: PropTypes.string.isRequired,
-  rgb: PropTypes.shape({
-    red: PropTypes.number.isRequired,
-    green: PropTypes.number.isRequired,
-    blue: PropTypes.number.isRequired
-  })
+  hex: PropTypes.string.isRequired
 };
 
