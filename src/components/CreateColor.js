@@ -17,17 +17,18 @@ export default class CreateColor extends PureComponent {
 
   submitHandler = event => {
     event.preventDefault();
-    console.log(this.state);
+    console.log(this.state.name);
   }
 
   render() {
     const { name, color } = this.state;
 
     return (
-      <>
-      <input name="name" value={name} onChange={this.changeHandler}></input>
-      <input name="color" value={color} onChange={this.changeHandler}></input>
-      </>
+      <form onSubmit={this.submitHandler}>
+        <input name="name" value={name} onChange={this.changeHandler}></input>
+        <input name="color" value={color} onChange={this.changeHandler}></input>
+        <button>Add Color</button>
+      </form>
     );
   }
 }
