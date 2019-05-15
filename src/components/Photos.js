@@ -3,11 +3,19 @@ import Photo from './Photo.js';
 import PropTypes from 'prop-types';
 
 export default function Photos({ photos }){
-  photos.map(photo => {
+  const photoList = photos.map(photo => {
     return (
-      // <Photo photo={photo}/>
+      <li key={photo}>
+        <Photo photo={photo} />
+      </li>
     );
   });
+
+  return (
+    <ul>
+      {photoList}
+    </ul>
+  );
 }
 
 Photos.propTypes = {
