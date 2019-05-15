@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import PropTypes from 'prop-types';
 
 export default class TextFormatter extends PureComponent {
   state = {
@@ -12,7 +11,7 @@ export default class TextFormatter extends PureComponent {
       this.text;
     });
   };
-  
+
   render(){
     return (
       <>
