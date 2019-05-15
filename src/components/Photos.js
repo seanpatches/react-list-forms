@@ -2,12 +2,14 @@ import React from 'react';
 import Photo from './Photo.js';
 import PropTypes from 'prop-types';
 
-export default function Photos({ photo }){
-  return (
-    <img src={photo} />
-  );
+export default function Photos({ photos }){
+  photos.map(photo => {
+    return (
+      // <Photo photo={photo}/>
+    );
+  });
 }
 
 Photos.propTypes = {
-  photo: PropTypes.string.isRequired
+  photos: PropTypes.array.isRequired
 };
