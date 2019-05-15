@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
 export default class TextFormatter extends PureComponent {
   state = {
@@ -7,16 +6,15 @@ export default class TextFormatter extends PureComponent {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {
-      this.text;
-    });
-  };
+    this.setState({ [target.name]: target.value }); 
+  }
 
-  render(){
+  render() {
+    const { text } = this.state;
     return (
       <>
-      <input type="text" value={this.state.text} onChange={this.handleChange} />
-      <p text={this.state.text} />
+      <input name="text" type="text" value={text} onChange={this.handleChange} />
+      <p>{this.state.text}</p>
       </>
     );
   }
