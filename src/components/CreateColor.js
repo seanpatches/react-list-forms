@@ -28,6 +28,7 @@ export default class CreateColor extends PureComponent {
       <form onSubmit={this.submitHandler}>
         <input name="name" value={name} onChange={this.changeHandler}></input>
         <input name="color" value={color} onChange={this.changeHandler}></input>
+        <input type="color" name="color" value={color} onChange={this.changeHandler}></input>
         <button>Add Color</button>
       </form>
     );
