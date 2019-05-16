@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Sidebar({ children }) {
+function Sidebar({ children }) {
   return (
     <nav>
       {children}
@@ -12,3 +12,5 @@ export default function Sidebar({ children }) {
 Sidebar.propTypes = {
   children: PropTypes.node
 };
+
+export default Sidebar;
