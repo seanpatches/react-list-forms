@@ -7,7 +7,7 @@ export default function App() {
   return (
   <>
   <ErrorBoundary>
-    {/* <Bad /> */}
+    <Bad />
     <Good />
   </ErrorBoundary>
   </>
